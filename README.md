@@ -7,7 +7,6 @@ To configure and test basic firewall rules to allow or block network traffic usi
 
 ## Tools Used
 - Linux (Ubuntu 22.04) with UFW
-- Windows 10 Firewall
 
 ## Steps Performed
 1. Installed UFW (Uncomplicated Firewall)
