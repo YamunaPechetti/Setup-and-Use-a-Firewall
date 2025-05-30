@@ -10,28 +10,50 @@ To configure and test basic firewall rules to allow or block network traffic usi
 - Windows 10 Firewall
 
 ## Steps Performed
-1. Checked current firewall status:
+1. Installed UFW (Uncomplicated Firewall)
 ```bash
-sudo ufw status verbose
+sudo apt update
+sudo apt install ufw
 ```
-2 Enabled the firewall:
+2. Enabled the Firewall
 ```bash
 sudo ufw enable
 ```
-3. Blocked inbound traffic on port 23 (Telnet):
+3. Checked Current Firewall Status
+```bash
+sudo ufw status verbose
+```
+4. Blocked Inbound Traffic on Port 23 (Telnet)
 ```bash
 sudo ufw deny 23
 ```
-4. Tested connectivity to port 23 using telnet localhost 23 (connection refused, as expected).
-5. Allowed SSH to ensure remote access was maintained:
+5. Tested Telnet Block
+Installed Telnet:
+```bash
+sudo apt install telnet
+```
+Verified block:
+```bash
+telnet 192.168.11.141 23
+```
+6. Allowed SSH (Port 22) to Ensure Remote Access
 ```bash
 sudo ufw allow 22
 ```
-5. Removed test rule to restore original state:
+7. Tested SSH Access
+Checked SSH service:
+```bash
+sudo systemctl status ssh
+```
+Verified SSH locally:
+```bash
+ssh localhost
+```
+8. Deleted the Telnet Block Rule (Restored State)
 ```bash
 sudo ufw delete deny 23
 ```
-6. Listed all rules:
+9. Listed All Active Firewall Rules
 ```bash
 sudo ufw status numbered
 ```
